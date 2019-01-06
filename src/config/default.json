@@ -1,0 +1,9 @@
+{
+  "host": "https://api.themoviedb.org/3",
+  "my_api_key": "ac509e2ad8cac71de8885867ad9fcfc3",
+  "api": {
+    "createToken": "/authentication/token/new",
+    "createSession": "/authentication/session/new",
+    "getAccountInfo": "/account"
+  }
+}
