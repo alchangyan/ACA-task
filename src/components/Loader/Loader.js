@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 import Icon from '@material-ui/core/Icon';
 import classnames from 'classnames';
@@ -7,6 +7,7 @@ import './styles/Loader.css';
 const propTypes = {
   active: PropTypes.bool
 };
+
 const defaultProps = {
   active: false
 };

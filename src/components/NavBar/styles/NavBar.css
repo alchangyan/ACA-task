@@ -1,0 +1,11 @@
+.NavBar .Link {
+  text-decoration: none;
+  color: #fff;
+}
+.NavBar .Link.HomeLink {
+  text-decoration: none!important;
+}
+.NavBar .Link.Active,
+.NavBar .Link:hover {
+  text-decoration: underline;
+}

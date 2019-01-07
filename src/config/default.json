@@ -4,6 +4,6 @@
   "api": {
     "createToken": "/authentication/token/new",
     "createSession": "/authentication/session/new",
-    "getAccountInfo": "/account"
+    "getUserInfo": "/account"
   }
 }

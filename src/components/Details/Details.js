@@ -1,4 +1,5 @@
 import React, { PureComponent } from 'react';
+import DefaultLayout from '../../layouts/Default';
 // import PropTypes from 'prop-types';
 import './styles/Details.css';
 
@@ -8,9 +9,11 @@ const defaultProps = {};
 class Details extends PureComponent {
   render() {
     return (
-      <div className="Details">
-        Details Component
-      </div>
+      <DefaultLayout>
+        <div className="Details">
+          Details Component
+        </div>
+      </DefaultLayout>
     )
   }
 }

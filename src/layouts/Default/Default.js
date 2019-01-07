@@ -1,18 +1,20 @@
-import React, { PureComponent } from 'react';
+import React from 'react';
+import NavBar from '../../components/NavBar';
 // import PropTypes from 'prop-types';
 import './styles/Default.css';
 
 const propTypes = {};
 const defaultProps = {};
 
-class Default extends PureComponent {
-  render() {
-    return (
-      <div className="Default">
-        Default Component
+function Default(props) {
+  return (
+    <div className="Default">
+      <NavBar />
+      <div style={{padding: 15}}>
+        {props.children}
       </div>
-    )
-  }
+    </div>
+  )
 }
 
 Default.propTypes = propTypes;

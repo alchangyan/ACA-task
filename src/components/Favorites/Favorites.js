@@ -1,4 +1,5 @@
 import React, { PureComponent } from 'react';
+import DefaultLayout from '../../layouts/Default';
 // import PropTypes from 'prop-types';
 import './styles/Favorites.css';
 
@@ -8,9 +9,11 @@ const defaultProps = {};
 class Favorites extends PureComponent {
   render() {
     return (
-      <div className="Favorites">
-        Favorites Component
-      </div>
+      <DefaultLayout>
+        <div className="Favorites">
+          Favorites Component
+        </div>
+      </DefaultLayout>
     )
   }
 }

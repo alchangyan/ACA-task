@@ -1,34 +1,52 @@
-import React, { useState, useEffect } from 'react';
-// import PropTypes from 'prop-types';
+import React, { useState } from 'react';
+import PropTypes from 'prop-types';
 import config from '../../config/default.json';
+import { connect } from 'react-redux';
+
+import { signUp } from '../../services/api';
+
 import TextField from '@material-ui/core/TextField';
 import Button from '@material-ui/core/Button';
 import './styles/SignIn.css';
 
-const propTypes = {};
-const defaultProps = {};
+const propTypes = {
+  signUp: PropTypes.func,
+};
+
+const defaultProps = {
+  signUp: () => {},
+};
+
 const inputStyles = {
   width: 300,
   marginBottom: 35
 };
-let errors = {};
 
 function SignIn(props) {
   const [username, setUsername] = useState('');
+  const [errors, setErrors] = useState({});
   const [apiKey, setApiKey] = useState('ac509e2ad8cac71de8885867ad9fcfc3');
 
-  useEffect(() => {
-    console.log(123)
-  })
+  const {
+    signUp,
+  } = props;
 
   function handleSubmit() {
-    console.log(username,
-apiKey)
+    if (!username || !apiKey) {
+      let errors = {};
+      if (!username) errors.username = true;
+      if (!apiKey) errors.apiKey = true;
+      setErrors(errors);
+    } else {
+      setErrors({});
+      signUp(username, apiKey)
+    }
   }
 
   return (
     <div className="SignIn">
       <TextField
+        error={errors.username}
         label="Username"
         value={username}
         style={inputStyles}
@@ -36,6 +54,7 @@ apiKey)
       />
       <br/>
       <TextField
+        error={errors.apiKey}
         label="MovieDB API key"
         value={apiKey}
         style={inputStyles}
@@ -57,4 +76,14 @@ apiKey)
 SignIn.propTypes = propTypes;
 SignIn.defaultProps = defaultProps;
 
-export default SignIn;
+const mapStateToProps = state => {
+  return {}
+}
+
+const mapDispatchToProps = dispatch => {
+  return {
+    signUp: (username, apiKey) => dispatch(signUp(username, apiKey))
+  }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(SignIn);
